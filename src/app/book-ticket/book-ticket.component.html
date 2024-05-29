@@ -1,0 +1,42 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="book-ticket-container">
+            <div class="ticket-details-container">
+                <h3>Book Ticket for {{ match.homeTeam }} vs {{ match.awayTeam }}</h3>
+                <p><strong>Venue:</strong> {{ match.venue }}</p>
+                <div class="date-time">
+                    <p>{{ match.matchDate | date: 'mediumDate' }}</p>
+                    <p class="ms-4">{{ match.matchDate | date: 'shortTime' }}</p>
+                </div>
+            </div>
+
+                <div class="seating-plan-container">
+                <h3>Ticket Plans</h3>
+                <form (ngSubmit)="onSubmit()">
+                    <div class="user-input-section">
+                        <div class="mb-3">
+                            <label for="ticketPlan" class="form-label">Select Ticket Plan</label>
+                            <select id="ticketPlan" class="form-select" [(ngModel)]="selectedPlanIndex" name="selectedPlanIndex" (change)="calculateTotalPrice()">
+                                <option disabled selected>Select Ticket Plan</option>
+                                <option *ngFor="let plan of ticketPlans; let i = index" [ngValue]="i">{{ plan.name }} - {{ plan.amount | currency }}</option>
+                            </select>
+                            
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" id="quantity" class="form-control" [(ngModel)]="quantity" name="quantity" (input)="calculateTotalPrice()" required>
+                        </div>
+                    </div>
+                    <div *ngIf="totalPrice > 0">
+                        <p><strong>Total Price: </strong>{{ totalPrice | currency }}</p>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Book Tickets</button>
+                </form>
+                </div>  
+            </div>
+    </body>
+</html>
+

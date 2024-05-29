@@ -1,0 +1,151 @@
+
+.upcoming-match-container{
+    padding: 1.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2{
+    color:  #343a40;
+}
+.match-date{
+    display: flex;
+    flex-direction: row;
+    color: #6c757d;
+}
+.ticket-price{
+    display: flex;
+    flex-direction: row;
+}
+.match-list{
+    width: 400px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.upcoming-list-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #f8f9fa;
+}
+
+.upcoming-list-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.upcoming-list-container::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.upcoming-list-container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+    border: 3px solid #f8f9fa;
+}
+
+.upcoming-list-container {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.upcoming-list-container::-webkit-scrollbar {
+    display: none; 
+}
+
+.upcoming-list-container:hover {
+    -ms-overflow-style: auto; 
+    scrollbar-width: auto; 
+}
+
+.upcoming-list-container:hover::-webkit-scrollbar {
+    display: block;  
+}
+.no-match-selected{
+    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+}
+.you-orders-section{
+    text-align: center;
+    background-color: #007bff;
+    width: 40%;
+    height: 250px;
+    margin-left: 3%;
+    padding-top: 2%;
+    margin-top: 1%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.you-orders-section h2{
+    color: white;
+}
+.teams-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.venue-time-row{
+    display: flex;
+    flex-direction: row;
+    margin-left:10% ;
+    margin-right:10% ;
+    justify-content: space-between;
+}
+.venue-quantity-row{
+    display: flex;
+    flex-direction: row;
+    margin-left:20% ;
+    margin-right:20% ;
+    justify-content: space-between;
+}
+.other-bookings {
+    margin-top: 1%;
+    margin-left: 10%;
+    height: 270px;
+    overflow-y: auto; 
+}
+
+.other-bookings::-webkit-scrollbar {
+    width: 5px; 
+}
+
+.other-bookings::-webkit-scrollbar-thumb {
+    border-radius: 10px; 
+    width: 5px; 
+    height: 30px; 
+}
+.other-booking-card{
+    margin-bottom: 3%;
+    width: 500px;
+    padding: 2%;
+    background-color: #dbd7d2;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.other-booking-team{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.other-booking-date-time{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+}
+.hometeam-h{
+    margin-left: 5%;
+}
+.venue-p
+{
+    margin-left: 10%;
+}
+.matchtime-p{
+    margin-left: 10%;
+}

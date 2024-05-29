@@ -1,0 +1,30 @@
+.book-ticket-container{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+.date-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: lightgray;
+}
+.ticket-details-container{
+    width: 50%;
+    background-color: #007FFF;
+    padding: 3%;
+    color: white;
+    border-radius: 20px;
+}
+.seating-plan-container{
+    width: 50%;
+}
+.form-select{
+    margin: auto;
+    width: 75%;
+}
+.user-input-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

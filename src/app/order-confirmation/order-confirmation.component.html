@@ -1,0 +1,36 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <app-navbar></app-navbar>
+        <div class="order-confirmation-container">
+            <div class="left-section">
+
+            </div>
+            <div class="right-section">
+                <div class="confirmation-png">
+                    <img src="../../assets/images/check-mark-icon-right-side-white-background.png">
+                </div>
+                <div class="confirmation-header">
+                    <h1>Booking Confirmed</h1>
+                </div>
+                <div class="order-details">
+                    <div *ngIf="order">
+                        <div class="quantity-plan-row">
+                            <p><strong>Ticket Quantity:</strong> {{ order.ticketQuantity }}</p>
+                            <p class="ms-4"><strong>Ticket Plan:</strong> {{ order.ticketPlan }}</p>
+                        </div>
+                        <p class="ms-4"><strong>Total Amount:</strong> {{ order.totalAmount | currency }}</p>
+                      </div>
+                      <div *ngIf="!order">
+                        <p>No order data available.</p>
+                      </div>
+                      <div class="back-to-home-btn">
+                        <button class="btn" (click)="goToHome()">Back to Home</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

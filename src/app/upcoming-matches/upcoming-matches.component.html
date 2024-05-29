@@ -1,0 +1,77 @@
+
+<html>
+    <head></head>
+    <body>
+        <div class="upcoming-match-container">   
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+              
+              <div *ngIf="matches.length === 0 && !errorMessage" class="alert alert-info">
+                No upcoming matches found.
+              </div>
+              
+              <div *ngIf="matches.length > 0">
+                <h2>Upcoming Matches</h2>
+                <hr>
+                <ul class="upcoming-list-container">
+                  <div *ngFor="let match of matches" (click)="selectMatch(match)">
+                    <div class="match-list mb-3">
+                        <h3>{{ match.homeTeam }} vs {{ match.awayTeam }}</h3>
+                        <div class="match-date">
+                            <h5>{{ match.matchDate | date: 'mediumDate' }}</h5>
+                            <h5 class="ms-3">{{ match.matchDate | date: 'shortTime' }}</h5>
+                        </div>
+                        <p><strong>Venue:</strong> {{ match.venue }}</p>
+                        <div class="ticket-price">
+                            <p>Starting from&nbsp;{{ match.ticketPrice | currency }} </p>
+                            <p class="ms-4"><strong>Remaining Tickets:</strong> {{ match.totalTickets }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                </ul>
+              </div> 
+        </div>
+        <div *ngIf="selectedMatch" class="book-ticket-container mt-4 ms-4">
+            <app-book-ticket [match]="selectedMatch"></app-book-ticket>
+        </div>
+        <div *ngIf="!selectedMatch" class="no-match-selected">
+           <!--- <img src="../../assets/images/28fd10e97b7a7570c5f63af680214f53.jpg" > --> 
+            <div class="you-orders-section">
+                <h2>Your Upcoming Match</h2>
+                <hr class="ms-4 me-4"/>
+                <div class="teams-row">
+                    <h3> {{ userTickets[0].match.homeTeam }}</h3>
+                    <h5>Vs</h5>
+                    <h3> {{ userTickets[0].match.awayTeam }}</h3>
+                </div>
+                <div class="venue-time-row">
+                    <h5>Date: {{ userTickets[0].match.matchDate | date:'mediumDate' }}</h5>
+                    <h5>Time: {{ userTickets[0].match.matchDate | date:'shortTime' }}</h5>                
+                </div>
+                <div class="venue-quantity-row">
+                    <h5>Venue: {{ userTickets[0].match.venue }}</h5>
+                    <h5>Quantity: {{ userTickets[0].ticketQuantity }}</h5>
+                </div>
+            </div>
+            <div *ngIf="userTickets.length > 1" class="other-bookings">
+                <h4>Other Bookings</h4>
+                <div *ngFor="let ticket of userTickets.slice(1)">
+                    <div  class="other-booking-card">
+                        <div class="other-booking-team">
+                            <h4 class="hometeam-h">{{ ticket.match.homeTeam }}</h4>
+                            <h5 style="color:gray;">Vs</h5>
+                            <h4>{{ ticket.match.awayTeam }}</h4>
+                            <p class="venue-p">Venue: {{ ticket.match.venue }}</p>
+                        </div>
+                        <div class="other-booking-date-time">
+                            <p> {{ ticket.match.matchDate |  date:'mediumDate' }} </p>
+                            <p class="matchtime-p">{{ ticket.match.matchDate | date:'shortTime' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
