@@ -14,6 +14,7 @@ export class UserStoreService {
     return this.userId$.asObservable();
   }
   public setStoreFromStore(user : string){
+    console.log("store"+user)
     this.userId$.next(user);
   }
 

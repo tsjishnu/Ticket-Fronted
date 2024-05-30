@@ -38,7 +38,7 @@
         </div>
         <div *ngIf="!selectedMatch" class="no-match-selected">
            <!--- <img src="../../assets/images/28fd10e97b7a7570c5f63af680214f53.jpg" > --> 
-            <div class="you-orders-section">
+            <div *ngIf="userTickets.length > 0" class="you-orders-section">
                 <h2>Your Upcoming Match</h2>
                 <hr class="ms-4 me-4"/>
                 <div class="teams-row">

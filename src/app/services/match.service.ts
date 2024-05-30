@@ -21,7 +21,7 @@ export class MatchService {
   }
   
   getUserOrders(userId: string): Observable<UserTickets[]> {
-    return this.http.get<UserTickets[]>(`${this.baseUrl}/${userId}`); // Replace '/api/user/' + userId + '/orders' with your API endpoint
+    return this.http.get<UserTickets[]>(`${this.baseUrl}/${userId}`); 
   }
 
 }

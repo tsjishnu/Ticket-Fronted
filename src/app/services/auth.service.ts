@@ -23,10 +23,12 @@ export class AuthService {
   }
 
   signup(userData: any): Observable<any> {
+    console.log(userData)
     return this.http.post<any>(`${this.baseUrl}signup`, userData);
   }
-  logout(){
-    localStorage.clear();
+  async logout() {
+    await localStorage.clear();
+    await localStorage.removeItem('token')
     this.router.navigate(['/']);
   }
 
@@ -48,6 +50,6 @@ export class AuthService {
   }
   getUserIdFromToken(){
       if(this.userPayload)
-        return this.userPayload.UserID;
+        return this.userPayload.nameid;
   }
 }

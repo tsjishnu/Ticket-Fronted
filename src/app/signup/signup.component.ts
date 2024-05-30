@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
+import ValidateForm from '../helpers/validateform';
 
 @Component({
   selector: 'app-signup',
@@ -20,11 +21,12 @@ export class SignupComponent {
       this.signupForm = this.fb.group({
           fullName: ['', Validators.required],
           email: ['', [Validators.required, Validators.email]],
-          password: ['', Validators.required]
+          password: ['',[ Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
       });
   }
   onSubmit(): void {
     if (this.signupForm.valid) {
+        console.log("model valid")
         const userData: User = {
             fullName: this.signupForm.value.fullName,
             email: this.signupForm.value.email,
@@ -40,6 +42,9 @@ export class SignupComponent {
                   this.signupError = error.error.message;
             }
         );
+    }
+    else{
+        ValidateForm.validateAllFormFields(this.signupForm);
     }
   }
 }

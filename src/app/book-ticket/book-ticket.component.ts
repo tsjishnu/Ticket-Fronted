@@ -28,6 +28,7 @@ export class BookTicketComponent {
   ngOnInit(){
     this.userStore.getUserIdFromStore().subscribe (val =>{
       let getUserIdFromToken = this.auth.getUserIdFromToken();
+      console.log(getUserIdFromToken)
       this.UserID = val || getUserIdFromToken
     })
   }
