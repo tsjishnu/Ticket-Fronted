@@ -15,13 +15,10 @@ export class MatchService {
   getUpcomingMatches(): Observable<Match[]>{
     return this.http.get<Match[]>(`${this.baseUrl}/upcoming-matches`)
   }
-
   createOrder(order: Order): Observable<any> {
     return this.http.post(`${this.baseUrl}/create-order`, order);
   }
-  
   getUserOrders(userId: string): Observable<UserTickets[]> {
     return this.http.get<UserTickets[]>(`${this.baseUrl}/${userId}`); 
   }
-
 }
